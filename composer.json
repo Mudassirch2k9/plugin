@@ -1,0 +1,15 @@
+{
+    "name": "shadhin/online_product_manager",
+    "description": "Product filter creator to assist customer to find product he need and manage filter questions",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Christian Westermann",
+            "email": "chris@christianwestermann.com"
+        }
+    ],
+    "require": {},
+    "autoload" :{
+        "psr-4": {"OPA\\Inc\\": "inc/"}
+    }
+}

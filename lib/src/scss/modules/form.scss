@@ -1,0 +1,11 @@
+.inline-block{
+    display: inline;
+}
+
+td > select + .select2-container{
+    line-height: 28px;
+    height: 28px;
+    vertical-align: middle;
+    padding: 2px;
+    max-width: 350px;
+  }
