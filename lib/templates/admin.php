@@ -5,7 +5,7 @@
 ?>
 
 <div class="wrap">
-	<h1>Online Product Advisor Plugin</h1>
+	<h1>WP Product Advisor Plugin</h1>
 	<?php settings_errors(); ?>
 
 	<ul class="nav nav-tabs">

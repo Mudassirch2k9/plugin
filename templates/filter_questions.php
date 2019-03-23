@@ -128,6 +128,8 @@ if( !isset($_POST['edit']) && $no_of_ques >= 3){
                 });
 
                 function addAnotherOption(tableId, name){
+
+                    // TODO: Restrict amount of answers for free users
                     
                     // add option row
                     var row = "<tr>"

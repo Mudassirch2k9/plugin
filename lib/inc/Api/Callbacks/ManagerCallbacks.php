@@ -23,7 +23,7 @@ class ManagerCallbacks extends BaseController
  
     public function adminIndexSection()
     {
-        echo "Manage plugin section by activating or deactivating throug  the following settings";
+        echo "Manage plugin section by activating or deactivating via the following settings";
     }
 
     public function checkboxField($args)

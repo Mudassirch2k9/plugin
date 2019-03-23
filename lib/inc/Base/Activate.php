@@ -35,7 +35,7 @@ class Activate{
             "opa_external_link" => [
                 "name"  => "External Link",
                 "type"  => "text",
-                "placeholder" => "e.g. https://www.amazzon.com/.....",
+                "placeholder" => "e.g. https://www.amazon.com/.....",
                 "id"    => 'opa_external_link'
             ]
         ];

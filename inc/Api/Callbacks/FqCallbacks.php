@@ -441,7 +441,7 @@ class FqCallbacks extends BaseController
 
         echo $output_question;
 
-        $previous_button = " <div class='input-group'><button  class='btn backtolast btn-warning' data-unset='previous'  onclick='callAjaxUnset(this)' style='width:100%;' type='button' target='2'>Previous</button></div>";
+        $previous_button = " <div class='input-group answerbuttons'><button  class='btn backtolast btn-warning' data-unset='previous'  onclick='callAjaxUnset(this)' style='width:100%;' type='button' target='2'>Previous</button></div>";
 
         echo $previous_button;
 
@@ -556,14 +556,14 @@ class FqCallbacks extends BaseController
         $q_options = isset($value['options']) ? $value['options'] : [];
         $id = $value['id'];
         $pro_attr = $value['pro_attr'];
-        $output = "<section class='' style='display:block'>
+        $output = "<section class='answer-body' style='display:block'>
                     <h2 id='ques_body' > $q_body </h2>";
         $c = 0;
         foreach ($q_options as $opt) {
             $value = $opt['value'];
             $name = isset($opt['name']) ? $opt['name'] : $value;
 
-            $output .= "<div class='input-group' style='width:100%;'>
+            $output .= "<div class='input-group answerbuttons' style='width:100%;'>
                         <button data-value='$c' data-question_id='$id'  onclick='callAjax(this)'  class='btn btn-primary opa_option' style='width:100%;' type='button' > $name </button>
                         <!-- <div class='input-group-btn'>
                             <button type='button'  class='btn btn-info information' data-toggle='popover' title='ab 200 euro.' data-content='Dulli Soundbars.' data-original-title='Mehr Infos'><i class='fa fa-question-circle'></i>
@@ -574,7 +574,7 @@ class FqCallbacks extends BaseController
         }
 
         $output .= "<div class='input-group' style='width:100%;'>
-                            <button data-value='null' data-question_id='$id'  onclick='callAjax(this)' class='btn   btn-primary' style='width:100%;' type='button' >Egal / Frage überspringen</button>
+                            <button data-value='null' data-question_id='$id'  onclick='callAjax(this)' class='btn   btn-primary' style='width:100%;' type='button' >Skip question</button>
                         </div>
                 </section>
                 ";
@@ -662,18 +662,16 @@ class FqCallbacks extends BaseController
                                             </tr>
                                             <tr>
                                                 <td colspan='2'>
-                                                    <a href='$product_url'>View</a>
+                                                    <a href='$product_url'><center>View</center></a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan='2'>
-                                                    <a target='_blank' rel='nofollow' data-meta='assistant-details' class='tl btn btn-success fw' href='#'><i class='fa fa-amazon'></i> Aktueller Preis</a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td colspan='2'>
-                                                    <a class='pv' data-meta='assistant' href='$external_link'>External Link</a>
+                                                    <center>
+                                                        <a target='_blank' rel='nofollow' data-meta='assistant-details' class='tl btn btn-success fw' href='$external_link'>
+                                                            <i class='fa fa-amazon'></i> Check price
+                                                        </a>
+                                                    </center>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -681,9 +679,11 @@ class FqCallbacks extends BaseController
                                     $meta_table
                                 </div>
                             </div>
+                            <!--
                             <div class='hidden-xs hidden-sm col-xs-12 productlist'>
                                 <button class='btn btn-primary product-action add-product product-227' data-product='227'><i class='fa fa-plus'></i> Vergleichen</button>
                             </div>
+                            -->
                         </div>
                     </div>
                 </div> ";

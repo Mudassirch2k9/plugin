@@ -82,7 +82,7 @@ Please head over to the [WP Product Advisor knowledge base](https://wpproductadv
 
 #### Support
 
-Use the [WordPress.org plugin forums](https://wordpress.org/support/plugin/mailchimp-for-wp) for community support where we try to help all of our users. If you found a bug, please create an issue on Github where we can act upon them more efficiently.
+Use the [WordPress.org plugin forums](https://wordpress.org/support/plugin/mailchimp-for-wp) for community support where we try to help all of our users. If you found a bug, please create an issue in our [Bug Report forum](https://wpproductadvisor.com/forums/forum/bug-report).
 
 If you're a premium user, please use the email address inside the plugin for support as that will guarantee a faster response time.
 
@@ -98,12 +98,11 @@ This plugin is being developed on GitHub. If you want to collaborate, please loo
 
 == Screenshots ==
 
-1. Create beautiful sign-up forms that blend in with your theme.
-2. Integrate with any other plugin out there.
-3. Add a highly converting top bar form to your site.
-4. Style your form with our Styles Builder (premium feature).
-5. Integrate your WooCommerce store with Mailchimp (premium feature).
-6. Dive into detailed sign-up statistics (premium feature).
+1. Create a slick product advisor widget that blends in with your theme.
+2. Integrate any type of prouduct.
+3. Add highly engaging questions to the product advisor. 
+4. Create as many questions and answers as needed. (premium feature).
+5. Integrate the product advisor widget on any post or page and start boosting your conversions. 
 
 == Changelog == 
 

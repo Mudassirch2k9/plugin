@@ -44,8 +44,8 @@ class Dashboard extends BaseController
     {
         $this->pages = [
             [
-                'page_title' => 'Online Product Advisor Settings',
-                'menu_title' => 'OPA Settings',
+                'page_title' => 'WP Product Advisor Settings',
+                'menu_title' => 'WPPA Settings',
                 'capability' => 'manage_options',
                 'menu_slug' => 'opa_settings',
                 'callback' => [$this->adminCallbacks, 'adminDashboard'],
@@ -78,7 +78,7 @@ class Dashboard extends BaseController
         $args = [
             [
                 'id' => 'opa_admin_index',
-                'title' => 'OPA Settings',
+                'title' => 'WPPA Settings',
                 'callback' => [$this->managerCallbacks, 'adminIndexSection'],
                 'page' => 'opa_settings',
             ],

@@ -15,7 +15,7 @@ $baseController = new BaseController();
 
         <li class=" <?php echo isset($_POST['edit']) ? 'active' : ''; ?>"><a href="#tab-2"><?php echo isset($_POST['edit']) ? 'Update ' : 'Add '; ?> Question</a></li>
 
-		<li class=""><a href="#tab-3"> Help ?</a></li>
+		<li class=""><a href="#tab-3">Help</a></li>
 
 	</ul>
 

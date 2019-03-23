@@ -20,8 +20,6 @@ $baseController = new BaseController();
 
 		<div id="tab-1" class="tab-pane active">
 
-            
-        
 			<form method="post" action="options.php" id="question_form_other">
         <?php
             settings_fields($this->option_group_filter_question_other);

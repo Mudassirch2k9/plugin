@@ -20,7 +20,7 @@ class Enqueue extends BaseController{
          wp_enqueue_script( 'jquery-ui-datepicker' );
 
          // You need styling for the datepicker. For simplicity I've linked to Google's hosted jQuery UI CSS.
-         wp_register_style( 'jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );
+         wp_register_style( 'jquery-ui', 'https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );
          wp_enqueue_style( 'jquery-ui' );
  
          // Select2 searchable dropdown
@@ -53,7 +53,7 @@ class Enqueue extends BaseController{
             wp_register_style('bootstrap', $this->plugin_url.'lib/bootstrap.min.css');
             wp_enqueue_style('bootstrap');
         }
-            
+           
         if (!wp_script_is('bootstrap')) {
             wp_register_script('bootstrap', $this->plugin_url.'lib/bootstrap.min.js', ['jquery'], '1.0', true );
             wp_enqueue_script('bootstrap');
@@ -62,6 +62,10 @@ class Enqueue extends BaseController{
         if (!wp_style_is('font-awesome')) {
                 wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'); 
         }
+
+        wp_register_style('customisations', $this->plugin_url.'lib/customisations.css');
+        wp_enqueue_style('customisations');
+         
         
     }
     
