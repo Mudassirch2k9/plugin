@@ -447,10 +447,10 @@ class FqCallbacks extends BaseController
 
         echo "</div>";
 
-        echo "  <div id='' class='col-sm-12 list-product  shadow' >";
+        echo "  <div id='' class='col-sm-12 list-product shadow' >";
         $question_other = get_option($this->option_name_questions_other, []);
         $title = (isset($question_other['filter_page_title']))? $question_other['filter_page_title'] : "Search Result";
-        echo "<h1>$title</h1>";
+        echo "<h1 class='wppaTitle'>$title</h1>";
 
         // $pro_attr_option = get_option($this->option_name_product_attributes, []);
 
@@ -557,7 +557,7 @@ class FqCallbacks extends BaseController
         $id = $value['id'];
         $pro_attr = $value['pro_attr'];
         $output = "<section class='answer-body' style='display:block'>
-                    <h2 id='ques_body' > $q_body </h2>";
+                    <h2 class='questionBody' id='ques_body' > $q_body </h2>";
         $c = 0;
         foreach ($q_options as $opt) {
             $value = $opt['value'];
@@ -599,11 +599,12 @@ class FqCallbacks extends BaseController
 
         if ($the_query->have_posts()) {
 
+            $count = 1;
             while ($the_query->have_posts()) {
 
                 $the_query->the_post();
 
-                $count = "";
+                $count = $count++;
                 $model = get_post_meta(get_the_id(), 'opa_model', true);
                 $default_product_image = $this->plugin_url . 'assets/images/product-default.png';
                 $image = (!is_null(get_the_post_thumbnail_url())) ? get_the_post_thumbnail_url() : $default_product_image;
@@ -622,10 +623,10 @@ class FqCallbacks extends BaseController
 
                     $meta_table .= "<tr>";
 
-                    $meta_table .= "<td>" . $value['name'] . "</td>";
+                    $meta_table .= "<td class='optionName'>" . $value['name'] . "</td>";
 
                     $v = (isset($meta[$key])) ? $meta[$key][0] : ' - ';
-                    $meta_table .= "<td>" . $v . "</td>";
+                    $meta_table .= "<td class='optionValue'>" . $v . "</td>";
 
                     $meta_table .= "</tr>";
 
@@ -635,21 +636,23 @@ class FqCallbacks extends BaseController
                 $output .= "
                 <div class='col-xs-12 col-sm-6 col-md-3 filter_product'>
                     <div class='product-one text-center shadow'>
-                        <div class='row'>
-                            <div class='col-sm-12 col-xs-4'>
-                                <div class='rang'> $count</div>
+                        <div class='row productBox'>
+                            <div class='col-sm-12 col-xs-12'>
+                                <div class='rang'> $count. </div>
+                            </div>
+                            <div class='col-sm-12 col-xs-12'>
                                 <div class='img-holder'>
                                     <a target='_blank' rel='nofollow' class='tl' data-meta='assistant-details-img' href='$product_url'><center><img title='$model' alt='$model' src='$image' style='height:100px;' class='img-responsive product-image-227'></center></a>
                                 </div>
                             </div>
-                            <div class='col-sm-12 col-xs-8'>
+                            <div class='col-sm-12 col-xs-12'>
                                 <strong>$brand $model </strong>
                                 <div class='content'>
                                     <table class='table' style='text-align:center;'>
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    Bewertung
+                                                    Rating:
                                                 </td>
                                                 <td>
                                                     <i class='fa fa-star'></i>
@@ -696,7 +699,7 @@ class FqCallbacks extends BaseController
                 <div class='row'>
                     <div class='col-md-12 text-center'>
                         <div class='alert alert-warning'>
-                            Sorry, in der Kombination konnten wir keine Produkte finden!
+                            Sorry, we can't find any products for that combination.
                         </div>
                     </div>
                 </div>

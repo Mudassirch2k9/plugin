@@ -4,10 +4,65 @@
 	
 */
 
+
 .answer-body {
 	padding-bottom: 10px; 
+}
+
+.productBox {
+	margin-top: 30px;
+}
+
+.rang {
+	text-align: center;
 }
 
 .answerbuttons {
 	padding: 0px 0px 3px 0px;
 }
+
+.optionName {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.optionValue {
+	font-size: 14px;
+}
+
+
+/* iPhone < 5: */
+@media screen and (device-aspect-ratio: 2/3) {
+
+	.wppaTitle {
+		font-size: 15px;
+		font-weight: bold;
+	}
+
+}
+
+/* iPhone 5: */
+@media screen and (device-aspect-ratio: 40/71) {
+
+	.wppaTitle {
+		font-size: 20px;
+		text-align: center;
+		font-weight: bold;
+	}
+	.questionBody {
+		font-size: 20px;
+		text-align: center;
+		font-weight: bold;	
+	}
+
+}
+
+/* iPhone 6: */
+@media screen and (device-aspect-ratio: 375/667) {}
+
+/* iPhone 6 Plus: */
+@media screen and (device-aspect-ratio: 16/9) {}
+
+/* iPad: */
+@media screen and (device-aspect-ratio: 3/4) {}
+
