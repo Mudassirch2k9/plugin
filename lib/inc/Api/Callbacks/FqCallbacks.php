@@ -616,8 +616,9 @@ class FqCallbacks extends BaseController
                 $meta = get_post_meta(get_the_id());
                 $option_product = get_option($this->option_name_product_attributes);
 
+                /*
                 $meta_table = "<table>";
-
+                
                 foreach ($option_product as $key => $value) {
 
                     $meta_table .= "<tr>";
@@ -631,6 +632,8 @@ class FqCallbacks extends BaseController
 
                 }
                 $meta_table .= "</table>";
+    
+                */ 
 
                 $output .= "
                 <div class='col-xs-12 col-sm-6 col-md-3 filter_product'>

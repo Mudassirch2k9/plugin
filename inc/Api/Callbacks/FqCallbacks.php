@@ -63,10 +63,12 @@ class FqCallbacks extends BaseController
             $counter = 1;
             $new_output = [];
             
-            foreach ($output as $key => $value) {                
+            foreach ($output as $key => $value) {  
+                $counter++;              
+                
                 if($counter <= 3 ){
                     $new_output[$key] = $value;
-                    $counter++;
+                    
                 }else{
                     return $new_output;
                 }
@@ -599,12 +601,12 @@ class FqCallbacks extends BaseController
 
         if ($the_query->have_posts()) {
 
-            $count = 1;
+            $count = 0;
             while ($the_query->have_posts()) {
 
                 $the_query->the_post();
 
-                $count = $count++;
+                $count++;
                 $model = get_post_meta(get_the_id(), 'opa_model', true);
                 $default_product_image = $this->plugin_url . 'assets/images/product-default.png';
                 $image = (!is_null(get_the_post_thumbnail_url())) ? get_the_post_thumbnail_url() : $default_product_image;
@@ -615,7 +617,10 @@ class FqCallbacks extends BaseController
                 // var_dump(get_post_meta(get_the_id()));
 
                 $meta = get_post_meta(get_the_id());
+                //var_dump($meta);
                 $option_product = get_option($this->option_name_product_attributes);
+
+                /*
 
                 $meta_table = "<table>";
 
@@ -626,13 +631,15 @@ class FqCallbacks extends BaseController
                     $meta_table .= "<td class='optionName'>" . $value['name'] . "</td>";
 
                     $v = (isset($meta[$key])) ? $meta[$key][0] : ' - ';
+
                     $meta_table .= "<td class='optionValue'>" . $v . "</td>";
 
                     $meta_table .= "</tr>";
 
                 }
                 $meta_table .= "</table>";
-
+                */
+                
                 $output .= "
                 <div class='col-xs-12 col-sm-6 col-md-3 filter_product'>
                     <div class='product-one text-center shadow'>
@@ -650,6 +657,7 @@ class FqCallbacks extends BaseController
                                 <div class='content'>
                                     <table class='table' style='text-align:center;'>
                                         <tbody>
+                                            <!--
                                             <tr>
                                                 <td>
                                                     Rating:
@@ -663,6 +671,7 @@ class FqCallbacks extends BaseController
                                                     </i>
                                                 </td>
                                             </tr>
+                                            -->
                                             <tr>
                                                 <td colspan='2'>
                                                     <a href='$product_url'><center>View</center></a>
