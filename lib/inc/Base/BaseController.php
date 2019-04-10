@@ -32,8 +32,8 @@ class BaseController{
         $this->plugin = plugin_basename(dirname(__FILE__,3)).'/online-product-advisor.php';
 
         $this->manager = [
-            'product_manager' => 'Product Manager',
-            'opa_filter_questions' => 'Filter Questions'
+            'product_manager' => __( 'Product Manager', 'wp-product-advisor' ),
+            'opa_filter_questions' => __( 'Filter Questions', 'wp-product-advisor' )
         ];
 
         

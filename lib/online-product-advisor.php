@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Online Product Advisor
-Description: Create & Customize product filter to assist customer to find product and manage filter questions
+Description: Create & customize a product advisor engine to offer your customer tailored product suggestions.
 Version: 1.0.1
 Author: Christian Westermann
 Author URI: https://www.linkedin.com/in/christian-westermann-318414b8/

@@ -37,22 +37,63 @@ class Dashboard extends BaseController
         $this->setSettings();
         $this->setSections();
         $this->setFields();
-        $this->settings_api->addPages($this->pages)->withSubPage('Dashboard')->register();
+
+        // Little hack in order to get the menu items translated into german #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+            $this->settings_api->addPages($this->pages)->withSubPage('Übersicht')->register();
+        } else {
+            $this->settings_api->addPages($this->pages)->withSubPage('Dashboard..')->register();
+        }
     }
 
     public function setPages()
     {
-        $this->pages = [
-            [
-                'page_title' => 'WP Product Advisor Settings',
-                'menu_title' => 'WPPA Settings',
-                'capability' => 'manage_options',
-                'menu_slug' => 'opa_settings',
-                'callback' => [$this->adminCallbacks, 'adminDashboard'],
-                'icon_url' => 'dashicons-admin-tools',
-                'position' => 9,
-            ],
-        ];
+
+        // #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+            $this->pages = [
+                [
+                    'page_title' => 'WP Kaufberater Einstellungen',
+                    'menu_title' => 'WPK Einstellungen',
+                    'capability' => 'manage_options',
+                    'menu_slug' => 'opa_settings',
+                    'callback' => [$this->adminCallbacks, 'adminDashboard'],
+                    'icon_url' => 'dashicons-admin-tools',
+                    'position' => 9,
+                ],
+            ];
+        } else {
+            
+            // #gerLangHack
+            $locale = get_locale();
+            if ($locale == 'de_DE') {
+                $this->pages = [
+                    [
+                        'page_title' => 'WP Kaufberater Einstellungen',
+                        'menu_title' => 'WPK Einstellungen', 'wp-product-advisor',
+                        'capability' => 'manage_options',
+                        'menu_slug' => 'opa_settings',
+                        'callback' => [$this->adminCallbacks, 'adminDashboard'],
+                        'icon_url' => 'dashicons-admin-tools',
+                        'position' => 9,
+                    ],
+                ];  
+            } else {
+                $this->pages = [
+                    [
+                        'page_title' => 'WP Product Advisor Settings',
+                        'menu_title' => 'WPPA Settings',
+                        'capability' => 'manage_options',
+                        'menu_slug' => 'opa_settings',
+                        'callback' => [$this->adminCallbacks, 'adminDashboard'],
+                        'icon_url' => 'dashicons-admin-tools',
+                        'position' => 9,
+                    ],
+                ]; 
+            }
+        }
 
     }
 
@@ -75,14 +116,27 @@ class Dashboard extends BaseController
     public function setSections()
     {
 
-        $args = [
-            [
-                'id' => 'opa_admin_index',
-                'title' => 'WPPA Settings',
-                'callback' => [$this->managerCallbacks, 'adminIndexSection'],
-                'page' => 'opa_settings',
-            ],
-        ];
+        // #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+            $args = [
+                [
+                    'id' => 'opa_admin_index',
+                    'title' => 'WP Kaufberater Einstellungen',
+                    'callback' => [$this->managerCallbacks, 'adminIndexSection'],
+                    'page' => 'opa_settings',
+                ],
+            ];
+        } else {
+            $args = [
+                [
+                    'id' => 'opa_admin_index',
+                    'title' => 'WPPA Settings',
+                    'callback' => [$this->managerCallbacks, 'adminIndexSection'],
+                    'page' => 'opa_settings',
+                ],
+            ];
+        }
 
         $this->settings_api->setSections($args);
     }

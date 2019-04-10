@@ -11,9 +11,19 @@
 
 	<ul class="nav nav-tabs">
 
-		<li class="<?php echo isset($_POST['edit']) ?: 'active'; ?>"><a href="#tab-1">Your Product Attributes</a></li>
+		<li class="<?php echo isset($_POST['edit']) ?: 'active'; ?>"><a href="#tab-1"><?php _e( 'Your Product Attributes','wp-product-advisor' ); ?></a></li>
 
-        <li class=" <?php echo isset($_POST['edit']) ? 'active' : ''; ?>"><a href="#tab-2"><?php echo isset($_POST['edit']) ? 'Update ' : 'Add '; ?> Product Attribute</a></li>
+        <li class=" <?php echo isset($_POST['edit']) ? 'active' : ''; ?>">
+            <a href="#tab-2">
+                <?php 
+                    if (isset($_POST['edit'])) {
+                        _e( 'Edit Product Attribute', 'wp-product-advisor' );
+                    } else {
+                        _e( 'Add Product Attribute', 'wp-product-advisor' );
+                    }
+                ?>
+            </a>
+        </li>
 
 	</ul>
 
@@ -25,10 +35,10 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Placeholder</th>
-                        <th>Action</th>
+                        <th><?php _e( 'Name', 'wp-product-advisor' ); ?></th>
+                        <th><?php _e( 'Type', 'wp-product-advisor' ); ?></th>
+                        <th><?php _e( 'Placeholder', 'wp-product-advisor' ); ?></th>
+                        <th><?php _e( 'Action', 'wp-product-advisor' ); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,7 +102,7 @@ submit_button();
 
 		<div id="tab-3" class="tab-pane">
 
-            <h3>About</h3>
+            <h3><?php _e( 'About', 'wp-product-advisor' ); ?></h3>
 
 		</div>
 	</div>

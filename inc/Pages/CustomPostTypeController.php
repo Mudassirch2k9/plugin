@@ -99,7 +99,7 @@ class CustomPostTypeController extends BaseController
         $this->metaBoxes = [
             [
                 'id' => 'product_spec',
-                'title' => 'Product Specification',
+                'title' => __( 'Product Specifications', 'wp-product-advisor' ),
                 'callback' => [ $this->cptCallbacks,'createMetaFields'],
                 'screen' => 'product',
                 'context' => 'custom_metabox_holder',
@@ -160,16 +160,32 @@ class CustomPostTypeController extends BaseController
     //set subpage
     public function setSubpages()
     {
-        $this->subpages = [
-            [
-                'parent_slug' => 'opa_settings',
-                'page_title' => 'Product Manger',
-                'menu_title' => 'Product Manager',
-                'capability' => 'manage_options',
-                'menu_slug' => $this->page_slug_product_manager,
-                'callback' => [$this->adminCallbacks, 'adminCPT'],
-            ],
-        ];
+
+        // #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+            $this->subpages = [
+                [
+                    'parent_slug' => 'opa_settings',
+                    'page_title' => 'Produkt Manager',
+                    'menu_title' => 'Produkt Manager',
+                    'capability' => 'manage_options',
+                    'menu_slug' => $this->page_slug_product_manager,
+                    'callback' => [$this->adminCallbacks, 'adminCPT'],
+                ],
+            ];
+        } else {
+            $this->subpages = [
+                [
+                    'parent_slug' => 'opa_settings',
+                    'page_title' => 'Product Manager',
+                    'menu_title' => 'Product Manager',
+                    'capability' => 'manage_options',
+                    'menu_slug' => $this->page_slug_product_manager,
+                    'callback' => [$this->adminCallbacks, 'adminCPT'],
+                ],
+            ];
+        }
     }
 
     //set settings
@@ -192,7 +208,7 @@ class CustomPostTypeController extends BaseController
         $args = [
             [
                 'id' => 'opa_cpt_index',
-                'title' => 'Product Attribute Form',
+                'title' => __( 'Product Attribute Form', 'wp-product-advisor' ),
                 'callback' => [$this->cptCallbacks, 'cptSection'],
                 'page' => $this->page_slug_product_manager,
             ],
@@ -216,7 +232,7 @@ class CustomPostTypeController extends BaseController
                     'args' => [
                         'option_name' => $this->option_name_product_attributes,
                         'label_for' => 'name',
-                        'placeholder' => 'eg. Price',
+                        'placeholder' => __( 'e.g. Price / GHz / Watts', 'wp-product-advisor' ),
                     ],
                 ],
             [
@@ -230,9 +246,9 @@ class CustomPostTypeController extends BaseController
                     'label_for' => 'type',
                     'disabled_option' => ' select one',
                     'options' => [
-                        'text' => 'Text',
-                        'number' => 'Number',
-                        'checkbox' => 'Checkbox',
+                        'text' => __( 'Text', 'wp-product-advisor' ),
+                        'number' => __( 'Number', 'wp-product-advisor' ),
+                        'checkbox' => __( 'Checkbox', 'wp-product-advisor' ),
                     ]
                 ],
             ],
@@ -245,7 +261,7 @@ class CustomPostTypeController extends BaseController
                 'args' => [
                     'option_name' => $this->option_name_product_attributes,
                     'label_for' => 'placeholder',
-                    'placeholder' => 'e.g. 100.00',
+                    'placeholder' => __( 'e.g. 99.99 / 0.1 / 1,0', 'wp-product-advisor' ),
                 ],
             ]
         ];
@@ -261,8 +277,8 @@ class CustomPostTypeController extends BaseController
         $options = [
             [
                 'post_type' => 'product',
-                'plural_name' => 'Products',
-                'singular_name' => 'Product',
+                'plural_name' => __( 'Products', 'wp-product-advisor' ),
+                'singular_name' => __( 'Products', 'wp-product-advisor' ),
                 'public' => true,
                 'has_archive' => true,
                 'taxonomies' => ['category', 'post_tag']

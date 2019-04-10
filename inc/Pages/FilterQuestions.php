@@ -103,24 +103,52 @@ class FilterQuestions extends BaseController
     //set subpage
     public function setSubpages()
     {
-        $this->subpages = [
-            [
-                'parent_slug' => 'opa_settings',
-                'page_title' => 'Questions',
-                'menu_title' => 'Filter Questions',
-                'capability' => 'manage_options',
-                'menu_slug' => $this->page_slug_filter_question,
-                'callback' => [$this->adminCallbacks, 'adminFQ'],
-            ],
-            [
-                'parent_slug' => 'opa_settings',
-                'page_title' => 'Other Settings',
-                'menu_title' => 'Other Settings',
-                'capability' => 'manage_options',
-                'menu_slug' => $this->page_slug_filter_question_other,
-                'callback' => [$this->adminCallbacks, 'adminFqOther'],
-            ],
-        ];
+
+        // #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+            
+            $this->subpages = [
+                [
+                    'parent_slug' => 'opa_settings',
+                    'page_title' => __( 'Filterfragen', 'wp-product-advisor' ),
+                    'menu_title' => __( 'Filterfragen', 'wp-product-advisor' ),
+                    'capability' => 'manage_options',
+                    'menu_slug' => $this->page_slug_filter_question,
+                    'callback' => [$this->adminCallbacks, 'adminFQ'],
+                ],
+                [
+                    'parent_slug' => 'opa_settings',
+                    'page_title' => __( 'Weitere Einstellungen', 'wp-product-advisor' ),
+                    'menu_title' => __( 'Weitere Einstellungen', 'wp-product-advisor' ),
+                    'capability' => 'manage_options',
+                    'menu_slug' => $this->page_slug_filter_question_other,
+                    'callback' => [$this->adminCallbacks, 'adminFqOther'],
+                ],
+            ];
+
+        } else {
+
+            $this->subpages = [
+                [
+                    'parent_slug' => 'opa_settings',
+                    'page_title' => __( 'Filter Questions', 'wp-product-advisor' ),
+                    'menu_title' => __( 'Filter Questions', 'wp-product-advisor' ),
+                    'capability' => 'manage_options',
+                    'menu_slug' => $this->page_slug_filter_question,
+                    'callback' => [$this->adminCallbacks, 'adminFQ'],
+                ],
+                [
+                    'parent_slug' => 'opa_settings',
+                    'page_title' => __( 'Other Settings', 'wp-product-advisor' ),
+                    'menu_title' => __( 'Other Settings', 'wp-product-advisor' ),
+                    'capability' => 'manage_options',
+                    'menu_slug' => $this->page_slug_filter_question_other,
+                    'callback' => [$this->adminCallbacks, 'adminFqOther'],
+                ],
+            ];
+
+        }
     }
 
     //set settings
@@ -145,20 +173,43 @@ class FilterQuestions extends BaseController
     //set section
     public function setSection()
     {
-        $args = [
-            [
-                'id' => 'opa_fq_index',
-                'title' => 'Filter Question Manager',
-                'callback' => [$this->fq_callbacks, 'fqSection'],
-                'page' => $this->page_slug_filter_question,
-            ],
-            [
-                'id' => 'opa_fq_other',
-                'title' => 'Few Settings for Fillter Questions',
-                'callback' => [$this->fq_callbacks, 'fqSectionOther'],
-                'page' => $this->page_slug_filter_question_other,
-            ],
-        ];
+        // #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+
+            $args = [
+                [
+                    'id' => 'opa_fq_index',
+                    'title' => __( 'Filterfragen Manager', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'fqSection'],
+                    'page' => $this->page_slug_filter_question,
+                ],
+                [
+                    'id' => 'opa_fq_other',
+                    'title' => __( 'Weitere Einstellungen für Filterfragen', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'fqSectionOther'],
+                    'page' => $this->page_slug_filter_question_other,
+                ],
+            ];
+
+        } else {
+
+            $args = [
+                [
+                    'id' => 'opa_fq_index',
+                    'title' => __( 'Filter Question Manager', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'fqSection'],
+                    'page' => $this->page_slug_filter_question,
+                ],
+                [
+                    'id' => 'opa_fq_other',
+                    'title' => __( 'Other Settings for Filter Questions', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'fqSectionOther'],
+                    'page' => $this->page_slug_filter_question_other,
+                ],
+            ];
+
+        }
 
         $this->settings_api->setSections($args);
     }
@@ -166,59 +217,120 @@ class FilterQuestions extends BaseController
     //set fields
 
     public function setFields()
-    {
-        $args = [
+    {   
+        // #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
 
-            [
-                'id' => 'pro_attr',
-                'title' => 'Product Attribute',
-                'callback' => [$this->fq_callbacks, 'settingsSelectField'],
-                'page' => $this->page_slug_filter_question,
-                'section' => 'opa_fq_index',
-                'args' => [
-                    'option_name' => $this->option_name_questions,
-                    'label_for' => 'pro_attr',
-                    'get_options' => [
-                        [$this->fq_callbacks, 'getProductAttributesArray'],
+            $args = [
+
+                [
+                    'id' => 'pro_attr',
+                    'title' => __( 'Produkt Attribut', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsSelectField'],
+                    'page' => $this->page_slug_filter_question,
+                    'section' => 'opa_fq_index',
+                    'args' => [
+                        'option_name' => $this->option_name_questions,
+                        'label_for' => 'pro_attr',
+                        'get_options' => [
+                            [$this->fq_callbacks, 'getProductAttributesArray'],
+                        ],
+                        'disabledoption' => __( '-- Wählen Sie ein Attribut --', 'wp-product-advisor' ),
                     ],
-                    'disabledoption' => '-- Select an option --',
                 ],
-            ],
-            [
-                'id' => 'ques_body',
-                'title' => 'Question Body',
-                'callback' => [$this->fq_callbacks, 'settingsTextboxField'],
-                'page' => $this->page_slug_filter_question,
-                'section' => 'opa_fq_index',
-                'args' => [
-                    'option_name' => $this->option_name_questions,
-                    'label_for' => 'ques_body',
-                    'placeholder' => 'e.g. What is your max budget?',
+                [
+                    'id' => 'ques_body',
+                    'title' => __( 'Frage-Formulierung', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsTextboxField'],
+                    'page' => $this->page_slug_filter_question,
+                    'section' => 'opa_fq_index',
+                    'args' => [
+                        'option_name' => $this->option_name_questions,
+                        'label_for' => 'ques_body',
+                        'placeholder' => __( 'z.B.: Wie hoch ist Ihr Budget?', 'wp-product-advisor' ),
+                    ],
                 ],
-            ],
-            [
-                'id' => 'options',
-                'title' => 'Options',
-                'callback' => [$this->fq_callbacks, 'settingsQuestionOptionsField'],
-                'page' => $this->page_slug_filter_question,
-                'section' => 'opa_fq_index',
-                'args' => [
-                    'option_name' => $this->option_name_questions,
-                    'label_for' => 'options',
+                [
+                    'id' => 'options',
+                    'title' => __( 'Optionen', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsQuestionOptionsField'],
+                    'page' => $this->page_slug_filter_question,
+                    'section' => 'opa_fq_index',
+                    'args' => [
+                        'option_name' => $this->option_name_questions,
+                        'label_for' => 'options',
+                    ],
                 ],
-            ],
-            [
-                'id' => 'filter_page_title',
-                'title' => 'Filter Page Title',
-                'callback' => [$this->fq_callbacks, 'settingsOthertextboxField'],
-                'page' => $this->page_slug_filter_question_other,
-                'section' => 'opa_fq_other',
-                'args' => [
-                    'option_name' => $this->option_name_questions_other,
-                    'label_for' => 'filter_page_title',
+                [
+                    'id' => 'filter_page_title',
+                    'title' => __( 'Title (H1)', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsOthertextboxField'],
+                    'page' => $this->page_slug_filter_question_other,
+                    'section' => 'opa_fq_other',
+                    'args' => [
+                        'option_name' => $this->option_name_questions_other,
+                        'label_for' => 'filter_page_title',
+                    ],
                 ],
-            ],
-        ];
+            ];
+
+        } else {
+
+            $args = [
+
+                [
+                    'id' => 'pro_attr',
+                    'title' => __( 'Product Attribute', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsSelectField'],
+                    'page' => $this->page_slug_filter_question,
+                    'section' => 'opa_fq_index',
+                    'args' => [
+                        'option_name' => $this->option_name_questions,
+                        'label_for' => 'pro_attr',
+                        'get_options' => [
+                            [$this->fq_callbacks, 'getProductAttributesArray'],
+                        ],
+                        'disabledoption' => __( '-- Select An Option --', 'wp-product-advisor' ),
+                    ],
+                ],
+                [
+                    'id' => 'ques_body',
+                    'title' => __( 'Question Body', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsTextboxField'],
+                    'page' => $this->page_slug_filter_question,
+                    'section' => 'opa_fq_index',
+                    'args' => [
+                        'option_name' => $this->option_name_questions,
+                        'label_for' => 'ques_body',
+                        'placeholder' => __( 'e.g.: What is your budget?', 'wp-product-advisor' ),
+                    ],
+                ],
+                [
+                    'id' => 'options',
+                    'title' => __( 'Options', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsQuestionOptionsField'],
+                    'page' => $this->page_slug_filter_question,
+                    'section' => 'opa_fq_index',
+                    'args' => [
+                        'option_name' => $this->option_name_questions,
+                        'label_for' => 'options',
+                    ],
+                ],
+                [
+                    'id' => 'filter_page_title',
+                    'title' => __( 'Title (H1)', 'wp-product-advisor' ),
+                    'callback' => [$this->fq_callbacks, 'settingsOthertextboxField'],
+                    'page' => $this->page_slug_filter_question_other,
+                    'section' => 'opa_fq_other',
+                    'args' => [
+                        'option_name' => $this->option_name_questions_other,
+                        'label_for' => 'filter_page_title',
+                    ],
+                ],
+            ];
+
+        }
 
         //    var_dump($args);
         $this->settings_api->setFields($args);

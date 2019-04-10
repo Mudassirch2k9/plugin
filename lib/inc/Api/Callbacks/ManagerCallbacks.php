@@ -23,7 +23,7 @@ class ManagerCallbacks extends BaseController
  
     public function adminIndexSection()
     {
-        echo "Manage plugin section by activating or deactivating via the following settings";
+        _e('Manage plugin section by activating or deactivating via the following settings', 'wp-product-advisor' );
     }
 
     public function checkboxField($args)

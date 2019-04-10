@@ -31,10 +31,21 @@ class BaseController{
         $this->plugin_url = plugin_dir_url(dirname(__FILE__,2));
         $this->plugin = plugin_basename(dirname(__FILE__,3)).'/online-product-advisor.php';
 
-        $this->manager = [
-            'product_manager' => 'Product Manager',
-            'opa_filter_questions' => 'Filter Questions'
-        ];
+
+        // #gerLangHack
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+
+            $this->manager = [
+                'product_manager' => 'Produkt Manager',
+                'opa_filter_questions' => 'Filterfragen'
+            ];
+        } else {
+            $this->manager = [
+                'product_manager' => 'Product Manager',
+                'opa_filter_questions' => 'Filter Questions'
+            ];
+        }
 
         
         //...Plugin attributes

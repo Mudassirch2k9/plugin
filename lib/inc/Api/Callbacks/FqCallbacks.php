@@ -616,7 +616,7 @@ class FqCallbacks extends BaseController
                 $meta = get_post_meta(get_the_id());
                 $option_product = get_option($this->option_name_product_attributes);
 
-                /*
+                /*  
                 $meta_table = "<table>";
                 
                 foreach ($option_product as $key => $value) {
@@ -685,7 +685,7 @@ class FqCallbacks extends BaseController
                                 </div>
                             </div>
                             <div class='hidden-xs hidden-sm col-xs-12 productlist'>
-                                <button class='btn btn-primary product-action add-product product-227' data-product='227'><i class='fa fa-plus'></i> Vergleichen</button>
+                                <button class='btn btn-primary product-action add-product product-227' data-product='227'><i class='fa fa-plus'></i> Compare</button>
                             </div>
                         </div>
                     </div>

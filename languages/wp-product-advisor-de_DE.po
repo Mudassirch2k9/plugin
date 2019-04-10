@@ -1,0 +1,337 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Product Advisor 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/online-product-"
+"advisor\n"
+"POT-Creation-Date: 2019-04-10 17:16+0200\n"
+"PO-Revision-Date: 2019-04-10 17:16+0200\n"
+"Last-Translator: \n"
+"Language-Team: westermarketing\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/Api/Callbacks/CptCallbacks.php:93
+msgid "Enter product attribute info:"
+msgstr "Geben Sie hier Ihre Attribut-Informatinen ein:"
+
+#: inc/Api/Callbacks/FqCallbacks.php:18
+msgid "Other Settings Options"
+msgstr "Nehmen Sie hier weitere Einstellungen an Ihrem Kaufberater vor."
+
+#: inc/Api/Callbacks/FqCallbacks.php:39
+msgid "Add and remove filter questions"
+msgstr "Hinzufügen und löschen der Filterfragen"
+
+#: inc/Api/Callbacks/FqCallbacks.php:185
+msgid "Yes"
+msgstr "Ja"
+
+#: inc/Api/Callbacks/FqCallbacks.php:187
+msgid "No"
+msgstr "Nein"
+
+#: inc/Api/Callbacks/FqCallbacks.php:200
+msgid "Operator"
+msgstr "Operator"
+
+#: inc/Api/Callbacks/FqCallbacks.php:203
+msgid "Value"
+msgstr "Wert"
+
+#: inc/Api/Callbacks/FqCallbacks.php:206
+msgid "Label"
+msgstr "Beschriftung"
+
+#: inc/Api/Callbacks/FqCallbacks.php:235
+msgid "Max"
+msgstr ""
+
+#: inc/Api/Callbacks/FqCallbacks.php:238
+msgid "Min"
+msgstr ""
+
+#: inc/Api/Callbacks/FqCallbacks.php:241
+msgid "Equal"
+msgstr "Gleich"
+
+#: inc/Api/Callbacks/FqCallbacks.php:256
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: inc/Api/Callbacks/FqCallbacks.php:302
+msgid "Select Product Attribute First"
+msgstr "Wählen Sie zuerst ein Produkt-Attribut"
+
+#: inc/Api/Callbacks/FqCallbacks.php:597
+msgid "Skip question"
+msgstr "Egal / Überspringen"
+
+#: inc/Api/Callbacks/ManagerCallbacks.php:26
+msgid ""
+"Manage plugin section by activating or deactivating the following settings"
+msgstr ""
+"Verwalten Sie die WP Kaufberater Module, indem Sie die folgenden "
+"Einstellungen aktivieren oder deaktivieren"
+
+#: inc/Pages/CustomPostTypeController.php:102
+msgid "Product Specifications"
+msgstr "Produktspezifikationen"
+
+#: inc/Pages/CustomPostTypeController.php:211
+msgid "Product Attribute Form"
+msgstr "Produkt-Attribut Formular"
+
+#: inc/Pages/CustomPostTypeController.php:235
+msgid "e.g. Price / GHz / Watts"
+msgstr "zB: Preis / Ghz / Watt"
+
+#: inc/Pages/CustomPostTypeController.php:249
+msgid "Text"
+msgstr ""
+
+#: inc/Pages/CustomPostTypeController.php:250
+msgid "Number"
+msgstr ""
+
+#: inc/Pages/CustomPostTypeController.php:251
+msgid "Checkbox"
+msgstr ""
+
+#: inc/Pages/CustomPostTypeController.php:264
+msgid "e.g. 99.99 / 0.1 / 1,0"
+msgstr "zB: 99,90 / 0,1 / 1,0"
+
+#: inc/Pages/CustomPostTypeController.php:280
+#: inc/Pages/CustomPostTypeController.php:281
+msgid "Products"
+msgstr "Produkte"
+
+#: inc/Pages/FilterQuestions.php:114 inc/Pages/FilterQuestions.php:115
+#, fuzzy
+#| msgid "Filter Page Title"
+msgid "Filterfragen"
+msgstr "Titel (H1)"
+
+#: inc/Pages/FilterQuestions.php:122 inc/Pages/FilterQuestions.php:123
+msgid "Weitere Einstellungen"
+msgstr ""
+
+#: inc/Pages/FilterQuestions.php:135 inc/Pages/FilterQuestions.php:136
+#: lib/inc/Base/BaseController.php:36 templates/filter_questions.php:8
+msgid "Filter Questions"
+msgstr "Filter Fragen"
+
+#: inc/Pages/FilterQuestions.php:143 inc/Pages/FilterQuestions.php:144
+msgid "Other Settings"
+msgstr "Weitere Einstellungen"
+
+#: inc/Pages/FilterQuestions.php:183
+msgid "Filterfragen Manager"
+msgstr ""
+
+#: inc/Pages/FilterQuestions.php:189
+msgid "Weitere Einstellungen für Filterfragen"
+msgstr ""
+
+#: inc/Pages/FilterQuestions.php:200
+msgid "Filter Question Manager"
+msgstr "Filterfragen Manager"
+
+#: inc/Pages/FilterQuestions.php:206
+msgid "Other Settings for Filter Questions"
+msgstr "Weitere Einstellungen für die Filterfragen"
+
+#: inc/Pages/FilterQuestions.php:229
+#, fuzzy
+#| msgid "Product Attribute"
+msgid "Produkt Attribut"
+msgstr "Produkt-Attribut"
+
+#: inc/Pages/FilterQuestions.php:239
+msgid "-- Wählen Sie ein Attribut --"
+msgstr ""
+
+#: inc/Pages/FilterQuestions.php:244
+msgid "Frage-Formulierung"
+msgstr ""
+
+#: inc/Pages/FilterQuestions.php:251
+#, fuzzy
+#| msgid "e.g.: What is your budget?"
+msgid "z.B.: Wie hoch ist Ihr Budget?"
+msgstr "zB: Wie hoch ist Ihr Budget?"
+
+#: inc/Pages/FilterQuestions.php:256
+#, fuzzy
+#| msgid "Options"
+msgid "Optionen"
+msgstr "Optionen"
+
+#: inc/Pages/FilterQuestions.php:267 inc/Pages/FilterQuestions.php:322
+msgid "Title (H1)"
+msgstr "Titel (H1)"
+
+#: inc/Pages/FilterQuestions.php:284 templates/filter_questions.php:40
+msgid "Product Attribute"
+msgstr "Produkt-Attribut"
+
+#: inc/Pages/FilterQuestions.php:294
+msgid "-- Select An Option --"
+msgstr "- - Wählen Sie eine Option - - "
+
+#: inc/Pages/FilterQuestions.php:299 templates/filter_questions.php:41
+msgid "Question Body"
+msgstr "Frage-Formulierung"
+
+#: inc/Pages/FilterQuestions.php:306
+msgid "e.g.: What is your budget?"
+msgstr "zB: Wie hoch ist Ihr Budget?"
+
+#: inc/Pages/FilterQuestions.php:311 templates/filter_questions.php:42
+msgid "Options"
+msgstr "Optionen"
+
+#: lib/inc/Api/Callbacks/ManagerCallbacks.php:26
+msgid ""
+"Manage plugin section by activating or deactivating via the following "
+"settings"
+msgstr ""
+"Verwalten Sie die Plugin-Sektion indem Sie die folgenden Einstellungen "
+"aktivieren oder deaktivieren"
+
+#: lib/inc/Base/BaseController.php:35 templates/product_manager.php:8
+msgid "Product Manager"
+msgstr "Produkt Manager"
+
+#: lib/inc/Pages/Dashboard.php:47
+msgid "WP Product Advisor Settings"
+msgstr "WP Kaufberater Einstellungen"
+
+#: lib/inc/Pages/Dashboard.php:48 lib/inc/Pages/Dashboard.php:81
+msgid "WPPA Settings"
+msgstr "WPKP Einstellungen"
+
+#: lib/templates/admin.php:12 templates/admin.php:12
+msgid "Manage Settings"
+msgstr "Einstellungsverwaltung"
+
+#: lib/templates/admin.php:13 lib/templates/admin.php:31 templates/admin.php:13
+#: templates/admin.php:31
+msgid "Updates"
+msgstr "Updates"
+
+#: lib/templates/admin.php:14 lib/templates/admin.php:35
+#: lib/templates/product_manager.php:105 templates/admin.php:14
+#: templates/admin.php:35 templates/product_manager.php:105
+msgid "About"
+msgstr "Über"
+
+#: lib/templates/product_manager.php:14 templates/product_manager.php:14
+msgid "Your Product Attributes"
+msgstr "Ihre Produkt-Attribute"
+
+#: lib/templates/product_manager.php:20 templates/product_manager.php:20
+msgid "Edit Product Attribute"
+msgstr "Produkt-Attribute bearbeiten"
+
+#: lib/templates/product_manager.php:22 templates/product_manager.php:22
+msgid "Add Product Attribute"
+msgstr "Produkt-Attribute hinzufügen"
+
+#: lib/templates/product_manager.php:38 templates/product_manager.php:38
+msgid "Name"
+msgstr "Name"
+
+#: lib/templates/product_manager.php:39 templates/product_manager.php:39
+msgid "Type"
+msgstr "Typ"
+
+#: lib/templates/product_manager.php:40 templates/product_manager.php:40
+msgid "Placeholder"
+msgstr "Platzhalter"
+
+#: lib/templates/product_manager.php:41 templates/filter_questions.php:43
+#: templates/product_manager.php:41
+msgid "Action"
+msgstr "Aktion"
+
+#: templates/admin.php:8
+msgid "WP Product Advisor Plugin"
+msgstr "WP Kaufberater Plugin"
+
+#: templates/filter_questions.php:14
+msgid "Your Questions"
+msgstr "Ihre Fragen"
+
+#: templates/filter_questions.php:20
+msgid "Update Question"
+msgstr "Frage Bearbeiten"
+
+#: templates/filter_questions.php:22
+msgid "Add Question"
+msgstr "Frage hinzufügen"
+
+#: templates/filter_questions.php:28
+msgid "Help"
+msgstr "Hilfe"
+
+#: templates/filter_questions.php:194
+msgid "You've reached the maximum amount!"
+msgstr "Maximale Anzahl erreicht!"
+
+#: templates/filter_questions.php:196
+msgid ""
+"You have reached the maximum 3 questions limit. Delete a question to add a "
+"new one, or upgrade to our premium version!"
+msgstr ""
+"Sie haben die maximale Anzahl von 3 Fragen erreicht. Löschen Sie eine Frage "
+"um eine neue hinzuzufügen, oder machen Sie ein Update auf Premium!"
+
+#: templates/filter_questions.php:198
+msgid ""
+"With WP Product Advisor Pro you'll get unlimited amount of questions & "
+"answers as well as premium support and many more soon coming features."
+msgstr ""
+"Mit WP Kaufberater Pro erhalten Sie die Möglichkeit unbegrenzt viele Fragen "
+"und Anwortmöglichkeiten zu erstellen, Premium Support, und viele weitere "
+"geplante Funktionen."
+
+#: templates/filter_questions.php:202
+msgid "Get WP Product Advisor Pro"
+msgstr "WP Kaufberater Pro jetzt kaufen"
+
+#: templates/filter_questions.php:311
+msgid "How to use Product Filter"
+msgstr "WP Kaufberater einfügen: "
+
+#: templates/filter_questions.php:316
+msgid ""
+"# Use this <code>[product_advisor] </code> shortcode in any page, post or "
+"anywhere"
+msgstr ""
+"# Benutzen Sie den <code>[product_advisor] </code> shortcode auf deiner "
+"gewünschten Seite. Egal ob page, post oder widget."
+
+#~ msgid "e.g.: \"Price\""
+#~ msgstr "zB: Preis"
+
+#~ msgid "e.g.: \"99.99\""
+#~ msgstr "zB: 99,90"
+
+#~ msgid "Dashboard"
+#~ msgstr "Übersicht"
+
+#, fuzzy
+#~| msgid "WPPA Settings"
+#~ msgid "WPKb Settings"
+#~ msgstr "WPKP Einstellungen"
+
+#~ msgid "Update "
+#~ msgstr "Bearbeite"

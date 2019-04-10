@@ -9,18 +9,20 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WP Product Advisor - Turn your website into a 24/7 sales consultant and increase your conversions with this interactive online product advisor plugin. 
+WP Product Advisor - Turn your niche website into a 24/7 sales consultant and increase your conversions with this interactive online product advisor plugin. 
 
 == Description ==
 ### WP Product Advisor 
 
-WP Product Advisor turns your website into a interactive, 24/7 sales consultant. Define individual questions in just a few clicks, include the product advisor widget on any page with a simple short code and start increasing your conversions. 
+WP Product Advisor turns any website into a interactive, 24/7 sales consultant. Define individual questions in just a few clicks, include the product advisor widget on any page with a simple short code and start increasing your conversions. 
 
 [youtube https://www.youtube.com/watch?v=xxxxxxxx]
 
 Your visitors will find exactly the products they are looking for within seconds, without having to learn technical details, dig through categories, or scroll through long product result pages.
 
-Increase conversion and customer satisfaction, and improve your SEO with higher click-through rates and reduced bounce rates. Whether you run your own shop or an affiliate marketing niche website, WP Product Advisor will offer great value to your customers. 
+Increase conversion and customer satisfaction, improve your SEO with higher click-through rates and reduced bounce rates. Whether you run your own shop or an affiliate marketing niche site, WP Product Advisor will offer great value to your customers. 
+
+WP Product Advisor is the most simple and lightweight shopping advisor plugin for Wordpress. 
 
 #### Features
 

@@ -90,7 +90,7 @@ class CptCallbacks extends BaseController
     //...section, cpt sanitizer , textbox, checkbox
     public function cptSection()
     {
-        echo "Give product attribute info";
+        _e( 'Enter product attribute info:', 'wp-product-advisor' );
     }
 
     public function cptSanitizer($input)

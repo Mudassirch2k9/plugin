@@ -15,7 +15,7 @@ class FqCallbacks extends BaseController
     //...section,  sanitizer 
     public function fqSectionOther()
     {
-        echo "Other Settings Options";
+        _e( 'Other Settings Options', 'wp-product-advisor' );
     }
 
     public function fqOtherSanitizer($input)
@@ -36,7 +36,7 @@ class FqCallbacks extends BaseController
     //...section,  sanitizer , inputboxes functions,
     public function fqSection()
     {
-        echo "Add and remove filter questions";
+        _e( 'Add and remove filter questions', 'wp-product-advisor' );
     }
 
     public function fqSanitizer($input)
@@ -181,7 +181,11 @@ class FqCallbacks extends BaseController
 
         switch ($type) {
             case 'checkbox':
-                echo "<span class='button'>Yes</span> <span class='button'>No</span>";
+                echo "<span class='button'>";
+                    _e( 'Yes', 'wp-product-advisor' );
+                echo "</span> <span class='button'>"; 
+                    _e( 'No', 'wp-product-advisor' );
+                echo "</span>";
                 break;
 
             case 'number':
@@ -192,9 +196,15 @@ class FqCallbacks extends BaseController
                 
                 echo"<tbody id='answer_options'>
                 <tr>
-                    <th>Operator</th>
-                    <th>Value</th>
-                    <th>Label</th>
+                    <th>"; 
+                        _e( 'Operator', 'wp-product-advisor' );
+                    echo "</th>
+                    <th>";
+                        _e( 'Value', 'wp-product-advisor' ); 
+                    echo "</th>
+                    <th>";
+                        _e( 'Label', 'wp-product-advisor' ); 
+                    echo "</th>
                 </tr>
                 ";
 
@@ -221,22 +231,30 @@ class FqCallbacks extends BaseController
                     echo "<tr>";
                     echo "<td>
                     <select name='operator[]' >
-                        <option value='<=' " . $selected_max . " > Max </option>
-                        <option value='>=' " . $selected_min . " > Min </option>
-                        <option value='=' " . $selected_equal . " > Equal </option>
+                        <option value='<=' " . $selected_max . " > "; 
+                            _e( 'Max', 'wp-product-advisor' );
+                        echo " </option>
+                        <option value='>=' " . $selected_min . " > "; 
+                            _e( 'Min', 'wp-product-advisor' );
+                        echo " </option>
+                        <option value='=' " . $selected_equal . " > "; 
+                            _e( 'Equal', 'wp-product-advisor' );
+                        echo " </option>
                     </select>
                     </td>";
                     echo '<td>
-                    <input type="number" step="0.01" value="' . $pre_value . '" name="' . $name . '[]" placeholder="e.g. 100" />
+                    <input type="number" step="0.01" value="' . $pre_value . '" name="' . $name . '[]" placeholder="e.g.: \'100\'" />
                     </td>';
 
-                    echo '<td ><input type="text" value="' . $pre_name . '" name="name[]" placeholder="e.g. Max $100 " /> <br/>
+                    echo '<td ><input type="text" value="' . $pre_name . '" name="name[]" placeholder="e.g.: \'Max $100\' " /> <br/>
                     </td>';
 
                     echo '</tr>';
                 }
                 echo "</tbody> </table>";
-                echo " <span class='button ' onclick=\"addAnotherOption('answer_options', '$name')\" > + Add </span>";
+                echo " <span class='button ' onclick=\"addAnotherOption('answer_options', '$name')\" > + "; 
+                    _e( 'Add', 'wp-product-advisor' );
+                echo " </span>";
 
                 break;
 
@@ -281,7 +299,7 @@ class FqCallbacks extends BaseController
                 break;
 
             default:
-                echo 'Select Product Attribute First';
+                _e( 'Select Product Attribute First', 'wp-product-advisor' );
                 break;
         }
 
@@ -575,11 +593,23 @@ class FqCallbacks extends BaseController
             $c++;
         }
 
-        $output .= "<div class='input-group' style='width:100%;'>
+        $locale = get_locale();
+        if ($locale == 'de_DE') {
+
+            $output .= "<div class='input-group' style='width:100%;'>
+                                <button data-value='null' data-question_id='$id'  onclick='callAjax(this)' class='btn   btn-primary' style='width:100%;' type='button' >Egal / Frage Übespringen</button>
+                            </div>
+                    </section>
+                    ";
+        } else {
+
+            $output .= "<div class='input-group' style='width:100%;'>
                             <button data-value='null' data-question_id='$id'  onclick='callAjax(this)' class='btn   btn-primary' style='width:100%;' type='button' >Skip question</button>
                         </div>
                 </section>
                 ";
+
+        }
 
         return $output;
 
@@ -639,7 +669,7 @@ class FqCallbacks extends BaseController
                 }
                 $meta_table .= "</table>";
                 */
-                
+
                 $output .= "
                 <div class='col-xs-12 col-sm-6 col-md-3 filter_product'>
                     <div class='product-one text-center shadow'>
@@ -693,7 +723,7 @@ class FqCallbacks extends BaseController
                             </div>
                             <!--
                             <div class='hidden-xs hidden-sm col-xs-12 productlist'>
-                                <button class='btn btn-primary product-action add-product product-227' data-product='227'><i class='fa fa-plus'></i> Vergleichen</button>
+                                <button class='btn btn-primary product-action add-product product-227' data-product='227'><i class='fa fa-plus'></i> Compare</button>
                             </div>
                             -->
                         </div>
