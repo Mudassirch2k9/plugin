@@ -649,7 +649,7 @@ class FqCallbacks extends BaseController
                 $meta = get_post_meta(get_the_id());
                 //var_dump($meta);
                 $option_product = get_option($this->option_name_product_attributes);
-
+                $meta_table = '';
                 /*
 
                 $meta_table = "<table>";

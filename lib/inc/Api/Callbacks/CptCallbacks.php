@@ -55,8 +55,6 @@ class CptCallbacks extends BaseController
             } else if ($field['type'] == 'select'){
                 echo $this->form_element_api->selectBoxField($field, $value);
 
-            } else if ($field['type'] == 'date'){
-                echo $this->form_element_api->dateBoxField($field, $value);
 
             } else if ($field['type'] == 'checkbox'){
                 
@@ -205,20 +203,7 @@ class CptCallbacks extends BaseController
  
      }
  
-     public function getScriptInitSelect2()
-     {
-         $script ="
-             <script>
-             jQuery(document).ready(function($) {
-                 $('.searchable').each( function() {
-                     $(this).select2();
-                 });
-             });
- 
-         </script>
-         ";
-         return $script;
-     }
+  
      
     public function getAttributeId(String $name)
     {

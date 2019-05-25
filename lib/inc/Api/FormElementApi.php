@@ -9,32 +9,6 @@ namespace OPA\Inc\Api;
 
 class FormElementApi  
 {
-    
-    public function dateBoxField($field, $value)
-    {
-        $id = $field['id'];
-        $classes = ($field['classes']) ?: '';
-        $title = $field['title'];
-        $placeholder = (isset($field['placeholder'])) ? $field['placeholder'] : '';
-
-        $output = "<th scope='row'><label for='$id' class=' $classes'>$title</label></th>"
-            . "<td><input type='text' class='form-control' name='$id' id='$id' placeholder=' $placeholder '  value='$value' />
-            <script>
-                jQuery(document).ready(function($) {
-                    $('#$id').datepicker({
-                        changeMonth: true,
-                        changeYear: true,
-                        maxDate: '+0D',
-                        yearRange : '-120yy:+0yy'
-                    });
-                });
-            </script>
-            </td>
-            ";
-
-        return $output;
-    }
-    
     public function selectBoxField($field, $value)
     {
         $id = $field['id'];

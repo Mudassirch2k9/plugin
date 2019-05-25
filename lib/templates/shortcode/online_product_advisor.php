@@ -2,18 +2,21 @@
 use OPA\Inc\Base\BaseController;
 
 $baseController = new BaseController();
-?>
-<script type="text/javascript" >
 
+
+			
+function templateOPAScript() {
+	wp_enqueue_script('inline_script', 'assets/opa-inline_script.js', ['jquery']);
+	wp_add_inline_script( 'inline_script', "
 	jQuery(document).ready(function($) {
 		var option = '';
 		opaGetProduct(option);
 	});
 
 	function updateProgress(){
-		var p = document.getElementById("question_area").dataset.progress;
-		p = Math.round(p * 100) / 100;
-		document.getElementById("progressBar").style.width = p+"%";
+		var p = document.getElementById(\"question_area\").dataset.progress;
+		p = Math.round(p * 100 / 100);
+		document.getElementById(\"progressBar\").style.width = p+\"%\";
 		document.getElementById('progressBar').getElementsByTagName('span')[0].innerHTML = p;
 	}
 
@@ -37,16 +40,19 @@ $baseController = new BaseController();
 			'action': 'front_filter_action',
 			'data': values,
 		};
-		var myAjaxUrl  = '<?php echo admin_url('admin-ajax.php') ?>';
+		var myAjaxUrl  = '". admin_url('admin-ajax.php') ."';
 
 		jQuery.post( myAjaxUrl, data, function(response) {
-			document.getElementById("opa_container").innerHTML = response ;
+			document.getElementById(\"opa_container\").innerHTML = response ;
 			updateProgress();
 
 		});
 	}
+	" );
+ }
+ add_action('wp_footer', 'templateOPAScript');
 
-</script>
+?>
 
 <div id="filter_questions"  >
 	<div class="row">
