@@ -134,7 +134,10 @@ $baseController = new BaseController();
                 // This IF will be executed only if the user in a trial mode or have a valid license.
                 if (wppa()->can_use_premium_code()) {
                     echo '<form method="post" action="options.php" id="question_form"> <div id="question_form_body"  ></div>';
-                    wp_referer_field();
+                    
+                wp_nonce_field( 'name_of_my_action', 'name_of_nonce_field' );
+                    // wp_referer_field();
+                    wp_nonce_field( 'name_of_my_action', 'name_of_nonce_field' );
                     echo '</form>';
                 }
             } else {
@@ -184,7 +187,8 @@ $baseController = new BaseController();
             } else {
 
                 echo '<form method="post" action="options.php" id="question_form"> <div id="question_form_body"  ></div>';
-                wp_referer_field();
+                // wp_referer_field();
+                wp_nonce_field( 'name_of_my_action', 'name_of_nonce_field' );
                 echo '</form>';
             }
         }
