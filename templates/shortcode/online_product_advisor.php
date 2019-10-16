@@ -13,11 +13,19 @@ function templateOPAScript() {
 		opaGetProduct(option);
 	});
 
+
 	function updateProgress(){
 		var p = document.getElementById(\"question_area\").dataset.progress;
+		// var p=100;
+
 		p = Math.round(p * 100 / 100);
-		document.getElementById(\"progressBar\").style.width = p+\"%\";
-		document.getElementById('progressBar').getElementsByTagName('span')[0].innerHTML = p;
+		 if(isNaN(p) || p===0){
+			document.getElementById(\"progressBar\").style.width = 0+\"%\";
+
+		}else{
+            document.getElementById(\"progressBar\").style.width = p+\"%\";
+		}
+		document.getElementById('progressBar').getElementsByTagName('span')[0].innerHTML = p+\"% completed\";
 	}
 
 	function callAjaxUnset(e){
@@ -59,7 +67,7 @@ function templateOPAScript() {
 		<div class="col-md-12 text-center">
 			<div class="progress">
 				<div id="progressBar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-					<span>0</span>% completed
+					<span style="position: absolute; color: #286090">0%</span>
 				</div>
 			</div>
 		</div>

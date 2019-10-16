@@ -7,7 +7,8 @@ $baseController = new BaseController();
 
     <h1><?php _e('Filter Questions', 'wp-product-advisor'); ?></h1>
 
-    <?php settings_errors(); ?>
+    <?php settings_errors(); 
+    ?>
 
     <ul class="nav nav-tabs">
 
@@ -33,19 +34,29 @@ $baseController = new BaseController();
 
         <div id="tab-1" class="tab-pane <?php echo isset($_POST['edit']) ?: 'active'; ?>">
 
-            <table class="cpt-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th><?php _e('Product Attribute', 'wp-product-advisor'); ?></th>
-                        <th><?php _e('Question Body', 'wp-product-advisor'); ?></th>
-                        <th><?php _e('Options', 'wp-product-advisor'); ?> </th>
-                        <th><?php _e('Action', 'wp-product-advisor'); ?></th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
+
+
+    <div class="widget widget-table">
+                    
+                         <div class="widget-header">
+                            <span class="icon-list"></span>
+                            <h3 class="icon chart">Data Table Plugin</h3>       
+                        </div>
+                        <div class="widget-content">
+                            <table class="table table-bordered table-striped data-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th><?php _e('Product Attribute', 'wp-product-advisor'); ?></th>
+                            <th><?php _e('Question Body', 'wp-product-advisor'); ?></th>
+                            <th><?php _e('Options', 'wp-product-advisor'); ?> </th>
+                            <th><?php _e('Action', 'wp-product-advisor'); ?></th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                              <?php
                     $questions = (get_option($baseController->option_name_questions)) ?: [];
 
                     foreach ($questions as $attr) {
@@ -54,7 +65,6 @@ $baseController = new BaseController();
                         $pro_attr = (isset($attr['pro_attr'])) ? $attr['pro_attr'] : "";
                         $ques_body = (isset($attr['ques_body'])) ? $attr['ques_body'] : "";
                         $options = (isset($attr['options'])) ? $attr['options'] : "";
-
                         echo "<tr scope='row'>";
 
                         echo "<td>$id </td>";
@@ -62,24 +72,44 @@ $baseController = new BaseController();
                         echo "<td>$pro_attr </td>";
 
                         echo "<td>$ques_body </td>";
+                        if($id=='opa_external_link'){
+                            echo "<td><textarea>";
+                            if (is_array($options)) {
+                                foreach ($options as $option) {
+                                    $name = "";
 
-                        echo "<td>";
-                        if (is_array($options)) {
-                            foreach ($options as $option) {
-                                $name = "";
+                                    if (isset($option['name'])) {
+                                        $name = $option['name'];
+                                    } else if (isset($option['value'])) {
+                                        $name = $option['value'];
+                                    }
 
-                                if (isset($option['name'])) {
-                                    $name = $option['name'];
-                                } else if (isset($option['value'])) {
-                                    $name = $option['value'];
+                                    echo ($name != "") ? "" . $name . ' ' : "";
                                 }
-
-                                echo ($name != "") ? "<span class='button'>" . $name . '</span> ' : "";
+                            } else {
+                                echo $options;
                             }
-                        } else {
-                            echo $options;
+                            echo "</textarea></td>";
+                        }else{
+                            echo "<td>";
+                            if (is_array($options)) {
+                                foreach ($options as $option) {
+                                    $name = "";
+
+                                    if (isset($option['name'])) {
+                                        $name = $option['name'];
+                                    } else if (isset($option['value'])) {
+                                        $name = $option['value'];
+                                    }
+
+                                    echo ($name != "") ? "<span class='button'>" . $name . '</span> ' : "";
+                                }
+                            } else {
+                                echo $options;
+                            }
+                            echo "</td>";
                         }
-                        echo "</td>";
+                       
 
                         echo '<td>';
 
@@ -109,9 +139,16 @@ $baseController = new BaseController();
 
                         echo "</tr>";
                     }
-                    ?>
-                </tbody>
-            </table>
+                    ?>                                                    
+                        </tbody>
+                    </table>
+                        </div> <!-- .widget-content -->
+                    
+                </div> 
+
+
+
+<!--  -->
         </div>
 
         <div id="tab-2" class="tab-pane <?php echo isset($_POST['edit']) ? 'active' : ''; ?>">
@@ -121,11 +158,8 @@ $baseController = new BaseController();
             {
                 $baseController = new BaseController();
                 $edit = (isset($_POST['edit'])) ? $_POST['edit']: null;
-
-
                 wp_enqueue_script('inline_script', $baseController->plugin_url . 'assets/opa-inline_script.js', ['jquery']);
                 wp_add_inline_script('inline_script', 'jQuery(document).ready(function($) { opaLoadForm(null, "' . $edit . '") })');
-                // var_dump("hello world");
             }
 
             add_action('admin_footer', 'handle_for_inline_script');
@@ -140,11 +174,18 @@ $baseController = new BaseController();
                     wp_nonce_field( 'name_of_my_action', 'name_of_nonce_field' );
                     echo '</form>';
                 }
+
+                else{
+                    echo '<div><p>You are not on trail mode or your license is invalid.</p></div>';
+                   echo '<div class="notice notice-warning is-dismissible"><p>You are not on trail mode or your license is invalid. </p></div>';
+                 }
+
             } else {
 
                 // limit to max 3 question
                 // $no_of_ques = count($questions);
-                $no_of_ques=0;
+                $no_of_ques = 0;
+
                 if (!isset($_POST['edit']) && $no_of_ques >= 3) {
 
                     echo "<h2 style='font-size:20px;font-weight:bold;'>";

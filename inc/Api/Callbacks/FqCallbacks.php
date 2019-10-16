@@ -45,6 +45,7 @@ class FqCallbacks extends BaseController
         $option_name = $this->option_name_questions;
 
         $output = get_option($option_name, []);
+        
 
         if (!$output || !is_array($output)) {
 
@@ -57,24 +58,25 @@ class FqCallbacks extends BaseController
 
             return $output;
         }
+        
         // limit to max 3 question
-        if( !isset( $output[ $input['pro_attr'] ] ) && count($output) >= 3){  //its not an update request and has 3 question
+        // if( !isset( $output[ $input['pro_attr'] ] ) && count($output) >= 6){  //its not an update request and has 3 question
             
-            $counter = 1;
-            $new_output = [];
+        //     $counter = 1;
+        //     $new_output = [];
             
-            foreach ($output as $key => $value) {  
-                $counter++;              
+        //     foreach ($output as $key => $value) {  
+        //         $counter++;              
                 
-                if($counter <= 3 ){
-                    $new_output[$key] = $value;
+        //         if($counter <= 3 ){
+        //             $new_output[$key] = $value;
                     
-                }else{
-                    return $new_output;
-                }
-            }
-            return $output;
-        }
+        //         }else{
+        //             return $new_output;
+        //         }
+        //     }
+        //     return $output;
+        // }
 
         $type = $this->getAttributeType($input['pro_attr']);
 
@@ -455,7 +457,7 @@ class FqCallbacks extends BaseController
         $progress = ($c / count($ques_option)) * 100;
 
         echo "<div class='row-fluid'>
-                <div class='col-sm-12 shadow questions_area' id='question_area' data-progress='$progress' >";
+                <div class='col-sm-12 shadow questions_area' style='overflow: auto;' id='question_area' data-progress='$progress' >";
 
         //var_dump($_SESSION[$this->session_attr_filter_data]);
 
