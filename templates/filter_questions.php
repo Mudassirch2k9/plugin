@@ -143,7 +143,8 @@ $baseController = new BaseController();
             } else {
 
                 // limit to max 3 question
-                $no_of_ques = count($questions);
+                // $no_of_ques = count($questions);
+                $no_of_ques=0;
                 if (!isset($_POST['edit']) && $no_of_ques >= 3) {
 
                     echo "<h2 style='font-size:20px;font-weight:bold;'>";
