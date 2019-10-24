@@ -108,6 +108,20 @@ This plugin is being developed on GitHub. If you want to collaborate, please loo
 
 == Changelog == 
 
+#### 1.1.0 - October 24, 2019
+
+-**Fixes**
+
+ - Fixed a bug that occured in the installation process
+ - Fixed a but that occured when entering the license key
+ - Fixed a design issue in the progress bar 
+ - Added a notification in the Filter Question Tab when the plugin wasn't activated yet
+ 
+ -**Improvements**
+ 
+ - Added pagination in the Filter Questions Tab
+ - Removed the Filter Questions limitation of 3 questions entirely. 
+
 #### 1.0.2 - March 23, 2019
 
 -**Fixes**
