@@ -1219,6 +1219,7 @@
             <script type="text/javascript">
                 (function ($) {
                     $(document).ajaxSend(function (event, jqxhr, settings) {
+                        // console.log(settings);
                         if (settings.url &&
                             -1 < settings.url.indexOf('admin-ajax.php') &&
                             ! ( settings.url.indexOf( '<?php echo $admin_param ?>' ) > 0 )
@@ -1230,7 +1231,6 @@
                             }
 
                             settings.url += '<?php echo $admin_param ?>=true';
-
                         }
                     });
                 })(jQuery);
@@ -11172,15 +11172,17 @@
 
             $license_key = trim( fs_request_get( 'license_key' ) );
 
+
             if ( empty( $license_key ) ) {
                 exit;
             }
 
-            $plugin_id = fs_request_get( 'module_id', '', 'post' );
+
+            $plugin_id = fs_request_get( 'module_id');
             $fs        = ( $plugin_id == $this->_module_id ) ?
                 $this :
                 $this->get_addon_instance( $plugin_id );
-
+   
             $error     = false;
             $next_page = false;
 
@@ -11191,7 +11193,8 @@
             $blog_id           = fs_request_get( 'blog_id' );
             $has_valid_blog_id = is_numeric( $blog_id );
 
-            if ( $fs->is_registered() ) {
+            if ($fs->is_registered()) {
+
                 if ( fs_is_network_admin() && ! $has_valid_blog_id ) {
                     // If no specific blog ID was provided, activate the license for all sites in the network.
                     $blog_2_install_map = array();
@@ -11270,6 +11273,8 @@
                         $fs->get_account_url();
                 }
             } else {
+            // print_r($license_key);exit();
+
                 $next_page = $fs->opt_in(
                     false,
                     false,

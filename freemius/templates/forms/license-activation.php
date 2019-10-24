@@ -437,7 +437,6 @@ HTML;
 
                     data.sites = sites;
                 }
-
 				$.ajax({
 					url: ajaxurl,
 					method: 'POST',
