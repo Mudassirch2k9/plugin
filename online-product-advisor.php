@@ -2,7 +2,7 @@
 /*
 Plugin Name: Online Product Advisor
 Description: Create & customize a product advisor engine to offer your customer tailored product suggestions.
-Version: 1.0.1
+Version: 1.1.0
 Text Domain: wp-product-advisor
 Domain Path: /languages
 Author: Christian Westermann
